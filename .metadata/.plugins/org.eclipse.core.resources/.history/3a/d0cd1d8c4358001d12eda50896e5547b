@@ -1,0 +1,40 @@
+package com.dao;
+
+import java.awt.List;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+import com.bean.employee;
+import com.util.emputil;
+
+public class empdao {
+	public static void insertemployee(employee e1)
+	{
+		try
+		{
+			Connection conn = emputil.createConnection();
+			String sql ="insert into employee(fname,gender,mobile,email,password) values(?,?,?,?,?)";
+			PreparedStatement pst = conn.prepareStatement(sql);
+			pst.setString(1, e1.getFname());
+			pst.setString(2, e1.getGender());
+			pst.setLong(3, e1.getMobile());
+			pst.setString(4, e1.getEmail());
+			pst.setString(5, e1.getPassword());
+			pst.executeUpdate();
+		}
+		catch(Exception e2)
+		{
+			e2.printStackTrace();
+		}
+	}
+	public static List<employee> getemployee()
+	{
+		try {
+			
+		}
+		catch(Exception e2)
+		{
+			e2.printStackTrace();
+		}
+	}
+}

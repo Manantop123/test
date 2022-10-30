@@ -1,9 +1,9 @@
 package com.util;
 
+import java.sql.Connection;
 import java.sql.DriverManager;
 import java.util.*;
 
-import com.mysql.jdbc.Connection;
 
 public class emputil {
 	public static Connection createConnection()
@@ -12,10 +12,10 @@ public class emputil {
 		try
 		{
 			Class.forName("com.mysql.jdbc.Driver");
-			conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/newwebsite", "root","");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/newwebsite", "root" , "" );
 		}
-		catch (Exception e2) {
-			e2.printStackTrace();
+		catch (Exception e) {
+			e.printStackTrace();
 		}
 		return conn;
 	}
