@@ -1,8 +1,0 @@
-package com.bean;
-
-public class employee {
-	int id;
-	String fname,gender,email,password;
-	Long mobile;
-	
-}	
