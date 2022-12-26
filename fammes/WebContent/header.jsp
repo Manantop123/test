@@ -81,7 +81,7 @@
                            <a class="nav-link" href="logout.jsp">Logout,(<%=s1.getFname() %>)</a>
                         </li>
      		  				                        <li class="nav-item">
-                           <a class="nav-link" href="#">
+                           <a class="nav-link" href="my_cart_list.jsp">
                               <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                                  <g>
                                     <g>
@@ -136,11 +136,13 @@
                               </svg>
                            </a>
                         </li>
-                        <form class="form-inline">
+                        
+                        <a href="my_wish_list.jsp">
                            <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
-                           <i class="fa fa-search" aria-hidden="true"></i>
+                           <i class="fa fa-heart" aria-hidden="true" aria-hidden="true"></i>
                            </button>
-                        </form>
+                          </a>
+                        
                      </ul>	
     		  				<% 
     		  						}

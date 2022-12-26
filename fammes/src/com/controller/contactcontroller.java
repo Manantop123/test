@@ -153,7 +153,6 @@ public class contactcontroller extends HttpServlet {
 				s1.setEmail(request.getParameter("email"));
 				s1.setMobile(Long.parseLong(request.getParameter("mobile")));
 				s1.setAddress(request.getParameter("address"));
-				s1.setUsertype(request.getParameter("usertype"));
 				signupdao.updateform(s1);
 				HttpSession session = request.getSession();
 				session.setAttribute("u", s1);

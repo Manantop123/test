@@ -107,13 +107,12 @@ public class signupdao {
 		try
 		{
 			Connection conn = emputil.createconnConnection();
-			String sql = "update mx_signup set fname=? , mobile=? , address=?,usertype=? where email=?";
+			String sql = "update mx_signup set fname=? , mobile=? , address=? where email=?";
 			PreparedStatement pst = conn.prepareStatement(sql);
 			pst.setString(1, s1.getFname());
 			pst.setLong(2, s1.getMobile());
 			pst.setString(3, s1.getAddress());
 			pst.setString(4, s1.getEmail());
-			pst.setString(5, s1.getUsertype());
 			pst.executeUpdate();
 			
 		}

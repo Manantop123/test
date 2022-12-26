@@ -22,6 +22,7 @@ import com.dao.productdao;
 maxFileSize = 1024 * 1024 * 512, //512MB
 maxRequestSize = 1024 * 1024 * 512) // 512MB
 
+
 public class productcontroller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

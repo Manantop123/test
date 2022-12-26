@@ -1,4 +1,6 @@
+<%@page import="com.dao.wishlistdao"%>
 <%@page import="com.dao.productdao"%>
+<%@page import="com.dao.cartdao"%>
 <%@page import="com.bean.product"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -26,28 +28,77 @@
                   <div class="box">
                      <div class="option_container">
                         <div class="options">
+                        
                         <%
                         	if(session.getAttribute("u")!=null)
                         	{
-                        %>	
-                        
-                           <a href="add_to_cart.jsp?pid=<%=p1.getPid() %>" class="option1">
-                           Add to cart
-                           </a>
-                           <a href="add_to_wishlist.jsp?pid=<%=p1.getPid() %>" class="option2">
-                           Add to wishlist
-                           </a>
-                         <%   	
+                        		boolean flag = wishlistdao.checkwishlist(p1.getPid(),s1.getId());
+                        		if(flag==false)
+                        		{
+                        %>		
+                        		<a href="wishlist.jsp?pid=<%=p1.getPid() %>&id=<%=s1.getId() %>" class="option2">
+                                   Add to wishlist
+                            
+                                 </a>
+                         <%      	
+                        		}
+                        		else
+                        		{
+                        %>		
+                        		<a href="remove_wishlist.jsp?pid=<%=p1.getPid() %>&id=<%=s1.getId() %>" class="option2">
+                                   remove wishlist
+                                 </a>
+                                 
+                           <%      	
+                        		}
                         	}
                         	else
                         	{
-                          %>	
-                        	<a href ="login.jsp" class="option1">login</a>	
-                          <% 	
+                        	%>	
+                        	<a href ="login.jsp" class="option1">login</a>
+                        	<% 
                         	}
-                           %>
+                        %>
+                        
+
+
+<div class="options">
+                        
+                        <%
+                        	if(session.getAttribute("u")!=null)
+                        	{
+                        		boolean flag =cartdao.checkcartlist(p1.getPid(),s1.getId());
+                        		if(flag==false)
+                        		{
+                        %>		
+                             <a href="add_to_cart.jsp?pid=<%=p1.getPid() %>&id=<%=s1.getId() %>" class="option1">
+                           Add to cart
+                           </a>
+                                
+                         <%      	
+                        		}
+                        		else
+                        		{
+                        %>		
+		           		<a href="remove_cart.jsp?pid=<%=p1.getPid() %>&id=<%=s1.getId() %>" class="option2">
+                                   remove cart
+                                 </a>
+                                 
+                           <%      	
+                        		}
+                        	}
+                        	else
+                        	{
+                        	%>	
+                        	<a href ="login.jsp" class="option1">login</a>
+                        	<% 
+                        	}
+                        %>
+            	</div>            
+			
                         </div>
                      </div>
+                     
                      <div class="img-box">
                         <img src="images/<%=p1.getProduct_image() %>" alt="">
                      </div>
